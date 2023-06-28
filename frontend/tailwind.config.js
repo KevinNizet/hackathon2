@@ -2,7 +2,15 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        titles: ["New Rocker", "serif"],
+        texts: ["serif"],
+      },
+      backgroundImage: {
+        wallpaper: "url(./frontend/src/assets/backgroundpaper2.jpg)",
+      },
+    },
   },
   plugins: [],
 };
