@@ -29,9 +29,8 @@ const verifyPassword = (req, res) => {
       if (isVerified) {
         const payload = {
           id: req.user.id,
-          firstname: req.user.firstname,
-          lastname: req.user.lastname,
           login: req.user.login,
+          mdp: req.user.mdp,
         };
         const token = jwt.sign(payload, process.env.JWT_SECRET, {
           expiresIn: "1h",
