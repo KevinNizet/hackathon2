@@ -1,8 +1,8 @@
 const models = require("../models");
 
-const getUserByEmailWithPasswordAndPassToNext = (req, res, next) => {
+const getUserByLoginWithPasswordAndPassToNext = (req, res, next) => {
   models.user
-    .getUserByEmail(req.body)
+    .getUserByLogin(req.body)
     .then(([users]) => {
       if (users[0] != null) {
         req.user = users[0]; // eslint-disable-line prefer-destructuring
@@ -18,5 +18,5 @@ const getUserByEmailWithPasswordAndPassToNext = (req, res, next) => {
 };
 
 module.exports = {
-  getUserByEmailWithPasswordAndPassToNext,
+  getUserByLoginWithPasswordAndPassToNext,
 };
