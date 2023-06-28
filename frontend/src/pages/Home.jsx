@@ -1,11 +1,7 @@
-import React from 'react';
-
-function Home () {
-    return (
-        <div>
-            <p>Bienvenue. Page d'accueil. Map par défaut des cartes</p>
-        </div>
-    );
-};
-
-export default Home;
+export default function Home() {
+  return (
+    <div>
+      <p>Page Home</p>
+    </div>
+  );
+}
