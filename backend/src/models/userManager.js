@@ -2,12 +2,12 @@ const AbstractManager = require("./AbstractManager");
 
 class userManager extends AbstractManager {
   constructor() {
-    super({ table: "users" });
+    super({ table: "user" });
   }
 
-  getUserByEmail(data) {
-    return this.database.query(`select * from users where email = ?`, [
-      data.email,
+  getUserByLogin(data) {
+    return this.database.query(`select * from user where login = ?`, [
+      data.login,
     ]);
   }
 }
