@@ -4,7 +4,7 @@ import rightGear from "../assets/engrenage2.png";
 
 function NavBar() {
   return (
-    <div>
+    <div className="flex">
       <img src={leftGear} alt="" />
       <h1>SMART'PUNK</h1>
       <img src={rightGear} alt="" />
