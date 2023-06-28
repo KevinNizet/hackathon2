@@ -1,11 +1,11 @@
-import Connexion from "./pages/Connexion";
+import Router from "./router/Router";
 
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Connexion />
+      <Router />
     </div>
   );
 }
