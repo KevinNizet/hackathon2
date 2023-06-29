@@ -2,16 +2,15 @@ const express = require("express");
 
 const router = express.Router();
 
-const itemControllers = require("./controllers/itemControllers");
+const phoneControllers = require("./controllers/phoneControllers");
 const userControllers = require("./controllers/userControllers");
 
 const { hashPassword, verifyPassword } = require("./auth");
 
-router.get("/phone", itemControllers.browse);
-router.get("/phone/:id", itemControllers.read);
-router.put("/phone/:id", itemControllers.edit);
-router.post("/phone", itemControllers.add);
-router.delete("/phone/:id", itemControllers.destroy);
+router.get("/phone", phoneControllers.browse); // OK
+router.get("/phone/:id", phoneControllers.read); // OK
+router.put("/phone/:id", phoneControllers.edit); // OK
+router.post("/phone", phoneControllers.add); // OK
 
 router.post(
   "/api/login",
