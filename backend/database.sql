@@ -94,43 +94,43 @@ INSERT INTO
 VALUES (
         'Steampunk-O-Phone',
         'GearGadget',
-        "http://localhost:6000/assets/images/Steampunk-O-Phone.jpg"
+        "http://localhost:5002/assets/images/Steampunk-O-Phone.jpg"
     ), (
         'Cog & Gears Communicator',
         'GearGadget',
-        'http://localhost:6000/assets/images/Cog & Gears Communicator.jpg'
+        'http://localhost:5002/assets/images/Cog & Gears Communicator.jpg'
     ), (
         'BrassMaster 3000',
         'SteamWire',
-        'http://localhost:6000/assets/images/BrassMaster 3000.jpg'
+        'http://localhost:5002/assets/images/BrassMaster 3000.jpg'
     ), (
         'SteamPunked Nexus',
         'SteamWire',
-        'http://localhost:6000/assets/images/SteamPunked Nexus.jpg'
+        'http://localhost:5002/assets/images/SteamPunked Nexus.jpg'
     ), (
         'Victorian Vaporizer',
         'ChronoComm',
-        'http://localhost:6000/assets/images/Victorian Vaporizer.jpg'
+        'http://localhost:5002/assets/images/Victorian Vaporizer.jpg'
     ), (
         'Clockwork Communicator',
         'ChronoComm',
-        'http://localhost:6000/assets/images/Clockwork Communicator.jpg'
+        'http://localhost:5002/assets/images/Clockwork Communicator.jpg'
     ), (
         'The Steambeast',
         'MécaMobile',
-        'http://localhost:6000/assets/images/The Steambeast.jpg'
+        'http://localhost:5002/assets/images/The Steambeast.jpg'
     ), (
         "Gearsmith's Gilded Gadget",
         'MécaMobile',
-        "http://localhost:6000/assets/images/Gearsmith's Gilded Gadget.jpg"
+        "http://localhost:5002/assets/images/Gearsmith's Gilded Gadget.jpg"
     ), (
         'The Steamfire Communicator',
         'VapeurTech',
-        'http://localhost:6000/assets/images/The Steamfire Communicator.png'
+        'http://localhost:5002/assets/images/The Steamfire Communicator.png'
     ), (
         'Steamberry 9000',
         'VapeurTech',
-        'http://localhost:6000/assets/images/Steamberry 9000.png'
+        'http://localhost:5002/assets/images/Steamberry 9000.png'
     );
 
 INSERT INTO

@@ -32,7 +32,7 @@ export default function Connexion() {
       <div className="w-full flex justify-center">
         <form action="">
           <label htmlFor="login" className="block font-texts">
-            Login :
+            Nom d'utilisateur :
           </label>
           <input
             id="login"
