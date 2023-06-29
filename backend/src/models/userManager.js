@@ -5,9 +5,10 @@ class userManager extends AbstractManager {
     super({ table: "user" });
   }
 
-  getUserByLogin(user) {
-    return this.database.query(`select * from user where login = ?`, [
-      user.login,
+
+  getUserByLogin(data) {
+    return this.database.query(`SELECT * FROM user WHERE login = ?`, [
+      data.login,
     ]);
   }
 

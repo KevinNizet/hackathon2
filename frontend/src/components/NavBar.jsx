@@ -4,7 +4,7 @@ import rightGear from "../assets/engrenage2.png";
 
 function NavBar() {
   return (
-    <div className=" w-screen bg-gradient-to-br from-[#884A39] to-[#C38154] h-24 text-center shadow-lg shadow-red-900/50">
+    <div className=" w-screen bg-banderole bg-no-repeat bg-cover bg-center h-24 text-center shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">
       <img src={leftGear} alt="" className="absolute -top-32 -left-36 w-80" />
       <h1 className="font-titles font-bold text-white text-4xl pt-6">
         SMART'PUNK
