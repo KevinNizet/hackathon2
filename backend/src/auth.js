@@ -10,7 +10,7 @@ const hashingOptions = {
 
 const hashPassword = (req, res, next) => {
   argon2
-    .hash(req.body.password, hashingOptions)
+    .hash("req.body.password", hashingOptions)
     .then((mdp) => {
       req.body.mdp = mdp;
       console.warn("hashedPassword de const hasPassWord", mdp);
@@ -34,7 +34,6 @@ const verifyPassword = (req, res) => {
       res.sendStatus(500);
     });
 };
-
 
 module.exports = {
   hashPassword,
