@@ -35,7 +35,6 @@ const verifyPassword = (req, res) => {
     });
 };
 
-
 module.exports = {
   hashPassword,
   verifyPassword,
