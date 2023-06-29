@@ -9,6 +9,7 @@ module.exports = {
       },
       backgroundImage: {
         wallpaper: "url(./src/assets/backgroundpaper2.jpg)",
+        banderole: "url(./src/assets/banderolenavbar.jpg)",
       },
     },
   },
