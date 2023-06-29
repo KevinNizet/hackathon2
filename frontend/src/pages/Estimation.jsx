@@ -1,10 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import NavBar from "../components/NavBar";
 import steampunk from "../assets/steampunk.svg";
 import locomotive from "../assets/locomotive.gif";
+import gearSteampunk from "../assets/gear-steampunk.svg";
+import mongole from "../assets/mongole.svg";
 
 function Estimation() {
   const [data, setData] = useState([]);
+  const [dataDetails, setDataDetails] = useState([]);
+  const [marqueTarget, setMarqueTarget] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5002/phone")
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+  useEffect(() => {
+    axios
+      .get("http://localhost:5002/details")
+      .then((res) => {
+        setDataDetails(res.data);
+      })
+      .catch((err) => console.error(err));
+  }, []);
 
   const handleSelect = (e) => {
     setData(e.target.value);
@@ -13,11 +35,11 @@ function Estimation() {
   return (
     <div className=" bg-[url('../assets/backgroundpaper2.jpg')] bg-no-repeat bg-cover h-screen">
       <NavBar />
-      <div>
+      <div className="">
         <img
           src={steampunk}
           alt="steampunk"
-          className=" absolute px-96 pt-24 "
+          className=" absolute px-96 pt-32 "
         />
       </div>
       <div>
@@ -34,12 +56,12 @@ function Estimation() {
             <select
               id="marque"
               value={data}
-              onChange={handleSelect}
+              onChange={(event) => setMarqueTarget(event.target.value)}
               className="select-punk "
             >
-              <option value="">color1</option>
-              <option value="">color2</option>
-              <option value="">color3</option>
+              {data.map((e) => {
+                return <option>{e.marque}</option>;
+              })}
             </select>
           </div>
           <div className="flex flex-col pr-36 ">
@@ -52,9 +74,13 @@ function Estimation() {
               onChange={handleSelect}
               className="select-punk"
             >
-              <option value="">color1</option>
-              <option value="">color2</option>
-              <option value="">color3</option>
+              {data
+                .filter((e) => {
+                  return e.marque === marqueTarget;
+                })
+                .map((e) => {
+                  return <option>{e.name_phone}</option>;
+                })}
             </select>
           </div>
           <div className="flex flex-col pr-36">
@@ -67,9 +93,13 @@ function Estimation() {
               onChange={handleSelect}
               className="select-punk"
             >
-              <option value="">color1</option>
-              <option value="">color2</option>
-              <option value="">color3</option>
+              {dataDetails
+                .filter((e) => {
+                  return e.phone_id === marqueTarget.id;
+                })
+                .map((e) => {
+                  return <option>{e.name_phone}</option>;
+                })}
             </select>
           </div>
         </div>
@@ -161,17 +191,32 @@ function Estimation() {
               </p>
               <button
                 type="submit"
-                className="bg-gradient-to-br from-[#884A39] to-[#C38154] p-2 rounded-lg border-2 border-zinc-800"
+                className="z-50 ml-96 bg-gradient-to-br from-[#884A39] to-[#C38154] p-2 px-6 rounded-lg border-2 border-zinc-800"
                 onClick=""
               >
-                Se Connecter
+                Estimer
               </button>
+              <div>
+                <img
+                  src={gearSteampunk}
+                  alt="gearSteampunk"
+                  className="absolute h-36 -ml-36 -mt-16 z-10"
+                />
+                <img
+                  src={gearSteampunk}
+                  alt="gearSteampunk"
+                  className="absolute h-24 -ml-40 -mt-16 z-0"
+                />
+              </div>
             </div>
           </div>
         </div>
       </form>
-      <div>
-        <img src={locomotive} alt="" />
+      <div className="pt-[79px]">
+        <div className="flex justify-end ">
+          <img src={mongole} alt="" className="absolute -mt-96" />
+        </div>
+        <img src={locomotive} alt="" className="h-32" />
       </div>
     </div>
   );
