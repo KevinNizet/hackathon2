@@ -12,6 +12,8 @@ router.get("/phone/:id", phoneControllers.read); // OK
 router.put("/phone/:id", phoneControllers.edit); // OK
 router.post("/phone", phoneControllers.add); // OK
 
+router.get("/details/:id", phoneControllers.read);
+
 router.post(
   "/api/login",
   userControllers.getUserByLoginWithPasswordAndPassToNext,
