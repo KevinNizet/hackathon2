@@ -1,5 +1,4 @@
 const argon2 = require("argon2");
-const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 const hashingOptions = {
@@ -11,9 +10,10 @@ const hashingOptions = {
 
 const hashPassword = (req, res, next) => {
   argon2
-    .hash("req.body.password", hashingOptions)
+    .hash(req.body.password, hashingOptions)
     .then((hashedPassword) => {
       req.body.hashedPassword = hashedPassword;
+      console.warn("hashedPassword: ", hashedPassword);
       next();
     })
     .catch((err) => {
@@ -23,22 +23,20 @@ const hashPassword = (req, res, next) => {
 };
 
 const verifyPassword = (req, res) => {
+  const storedPassword = req.user && req.user.mdp; // Vérifier si req.user et req.user.mdp sont définis
+
+  if (!storedPassword) {
+    res.status(401).send("Authentication failed");
+    return;
+  }
+
   argon2
-    .verify(req.user.hashedPassword, "req.body.password")
-    .then((isVerified) => {
-      if (isVerified) {
-        const payload = {
-          id: req.user.id,
-          login: req.user.login,
-          mdp: req.user.mdp,
-        };
-        const token = jwt.sign(payload, process.env.JWT_SECRET, {
-          expiresIn: "1h",
-        });
-        delete req.user.hashedPassword;
-        res.send({ token, user: req.user });
+    .verify(storedPassword, req.body.password)
+    .then((passwordMatch) => {
+      if (passwordMatch) {
+        res.status(200).send("Authentication verified");
       } else {
-        res.sendStatus(401);
+        res.status(401).send("Authentication failed");
       }
     })
     .catch((err) => {
@@ -47,26 +45,7 @@ const verifyPassword = (req, res) => {
     });
 };
 
-// const verifyToken = (req, res, next) => {
-//   try {
-//     const authorizationHeader = req.get("Authorization");
-//     if (authorizationHeader == null) {
-//       throw new Error("Authorization header is missing");
-//     }
-//     const [type, token] = authorizationHeader.split(" ");
-//     if (type !== "Bearer") {
-//       throw new Error("Authorization header has not the 'Bearer' type");
-//     }
-//     req.payload = jwt.verify(token, process.env.JWT_SECRET);
-//     next();
-//   } catch (err) {
-//     console.error(err);
-//     res.sendStatus(401);
-//   }
-// };
-
 module.exports = {
   hashPassword,
   verifyPassword,
-  // verifyToken,
 };
