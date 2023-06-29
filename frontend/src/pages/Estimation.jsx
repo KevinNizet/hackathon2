@@ -6,10 +6,30 @@ import locomotive from "../assets/locomotive.gif";
 import gearSteampunk from "../assets/gear-steampunk.svg";
 import mongole from "../assets/mongole.svg";
 
-function Estimation() {
+export default function Estimation() {
   const [data, setData] = useState([]);
-  const [dataDetails, setDataDetails] = useState([]);
+  // const [dataDetails, setDataDetails] = useState([]);
   const [marqueTarget, setMarqueTarget] = useState([]);
+  const [modeleTarget, setmodeleTarget] = useState([]);
+  const [anneeTarget, setAnneeTarget] = useState([]);
+  // const [ramTarget, setRamTarget] = useState([])
+  // const [stockageTarget, setStockageTarget] = useState([])
+  // const [ecranTarget, setEcranTarget] = useState([])
+  // const [engrenagesTarget, setEngrenagesTarget] = useState([])
+  // const [vapeursTarget, setVapeursTarget] = useState([])
+  // const [id, setId] = useState([]);
+
+  console.info("marquetarget", marqueTarget);
+  console.info("modeleTarget", modeleTarget);
+
+  // const handleChangeId = () => {
+  //   data.map((e) => {
+  //     if (e.name_phone === modeleTarget) {
+  //       setId(e.id);
+  //     }
+  //     console.info(id);
+  //   });
+  // };
 
   useEffect(() => {
     axios
@@ -23,7 +43,8 @@ function Estimation() {
     axios
       .get("http://localhost:5002/details")
       .then((res) => {
-        setDataDetails(res.data);
+        console.info(res);
+        // setDataDetails(res.data);
       })
       .catch((err) => console.error(err));
   }, []);
@@ -55,7 +76,7 @@ function Estimation() {
             </label>
             <select
               id="marque"
-              value={data}
+              value={marqueTarget}
               onChange={(event) => setMarqueTarget(event.target.value)}
               className="select-punk "
             >
@@ -70,8 +91,9 @@ function Estimation() {
             </label>
             <select
               id="Modèle"
-              value={data}
-              onChange={handleSelect}
+              value={modeleTarget}
+              onChange={(event) => setmodeleTarget(event.target.value)}
+              // onBlur={handleChangeId}
               className="select-punk"
             >
               {data
@@ -89,17 +111,17 @@ function Estimation() {
             </label>
             <select
               id="Année"
-              value={data}
-              onChange={handleSelect}
+              value={anneeTarget}
               className="select-punk"
+              onChange={(event) => setAnneeTarget(event.target.value)}
             >
-              {dataDetails
+              {/* {dataDetails
                 .filter((e) => {
-                  return e.phone_id === marqueTarget.id;
+                  // return e.phone_id === id;
                 })
                 .map((e) => {
-                  return <option>{e.name_phone}</option>;
-                })}
+                  return <option>{e}</option>;
+                })} */}
             </select>
           </div>
         </div>
@@ -111,12 +133,7 @@ function Estimation() {
             <label htmlFor="RAM" className="font-titles text-3xl">
               RAM
             </label>
-            <select
-              id="RAM"
-              value={data}
-              onChange={handleSelect}
-              className="select-punk"
-            >
+            <select id="RAM" value={data} className="select-punk">
               <option value="">color1</option>
               <option value="">color2</option>
               <option value="">color3</option>
@@ -126,12 +143,7 @@ function Estimation() {
             <label htmlFor="Stockage" className="font-titles text-3xl">
               Stockage
             </label>
-            <select
-              id="Stockage"
-              value={data}
-              onChange={handleSelect}
-              className="select-punk"
-            >
+            <select id="Stockage" value={data} className="select-punk">
               <option value="">color1</option>
               <option value="">color2</option>
               <option value="">color3</option>
@@ -141,12 +153,7 @@ function Estimation() {
             <label htmlFor="Ecran" className="font-titles text-3xl">
               Ecran
             </label>
-            <select
-              id="Ecran"
-              value={data}
-              onChange={handleSelect}
-              className="select-punk"
-            >
+            <select id="Ecran" value={data} className="select-punk">
               <option value="">color1</option>
               <option value="">color2</option>
               <option value="">color3</option>
@@ -163,7 +170,6 @@ function Estimation() {
             <select
               id="Engrenages"
               value={data}
-              onChange={handleSelect}
               className="border-solid border border-black rounded-lg w-10 h-10 bg-orange-100 drop-shadow-lg"
             >
               <option value="">color1</option>
@@ -179,7 +185,6 @@ function Estimation() {
               <select
                 id="Vapeurs"
                 value={data}
-                onChange={handleSelect}
                 className="border-solid border border-black rounded-lg bg-orange-100 drop-shadow-lg w-10 h-10"
               >
                 <option value="">color1</option>
@@ -221,5 +226,3 @@ function Estimation() {
     </div>
   );
 }
-
-export default Estimation;
