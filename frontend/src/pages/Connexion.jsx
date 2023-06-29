@@ -12,10 +12,13 @@ export default function Connexion() {
     e.preventDefault();
 
     axios
-      .post("http://localhost:6000/api/login", { login, password })
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/login`, {
+        login,
+        password,
+      })
       .then((res) => {
         localStorage.setItem("user", JSON.stringify(res.data));
-        navigate("/");
+        navigate("/home");
       })
       .catch((err) => console.error(err));
   };

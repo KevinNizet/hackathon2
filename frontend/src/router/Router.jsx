@@ -7,8 +7,8 @@ import Home from "../pages/Home";
 function Router() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Connexion />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/" element={<Connexion />} />
       <Route path="/estimation" element={<Estimation />} />
       <Route path="/inscription" element={<Inscription />} />
     </Routes>
