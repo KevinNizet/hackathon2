@@ -1,5 +1,5 @@
 const argon2 = require("argon2");
-const jwt = require("jsonwebtoken");
+// const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 const hashingOptions = {
@@ -11,9 +11,9 @@ const hashingOptions = {
 
 const hashPassword = (req, res, next) => {
   argon2
-    .hash("req.body.password", hashingOptions)
+    .hash("req.body.mdp", hashingOptions)
     .then((hashedPassword) => {
-      req.body.hashedPassword = hashedPassword;
+      req.body.mdp = hashedPassword;
       next();
     })
     .catch((err) => {
@@ -24,23 +24,11 @@ const hashPassword = (req, res, next) => {
 
 const verifyPassword = (req, res) => {
   argon2
-    .verify(req.user.hashedPassword, "req.body.password")
-    .then((isVerified) => {
-      if (isVerified) {
-        const payload = {
-          id: req.user.id,
-          login: req.user.login,
-          mdp: req.user.mdp,
-        };
-        const token = jwt.sign(payload, process.env.JWT_SECRET, {
-          expiresIn: "1h",
-        });
-        delete req.user.hashedPassword;
-        res.send({ token, user: req.user });
-      } else {
-        res.sendStatus(401);
-      }
+    .verify(req.user.mdp, req.body.password)
+    .then(() => {
+      res.sendStatus(401);
     })
+
     .catch((err) => {
       console.error(err);
       res.sendStatus(500);
@@ -68,5 +56,5 @@ const verifyPassword = (req, res) => {
 module.exports = {
   hashPassword,
   verifyPassword,
-  // verifyToken,
+  // // verifyToken,
 };

@@ -16,16 +16,13 @@ const getUserByLoginWithPasswordAndPassToNext = (req, res, next) => {
       res.status(500).send("Error retrieving data from database");
     });
 };
-
 const postUser = (req, res) => {
-  const item = req.body;
+  const user = req.body;
 
-  // TODO validations (length, format...)
-
-  models.item
-    .insert(item)
+  models.user
+    .insert(user)
     .then(([result]) => {
-      res.location(`/items/${result.insertId}`).sendStatus(201);
+      res.location(`/api/user/${result.insertId}`).sendStatus(201);
     })
     .catch((err) => {
       console.error(err);
@@ -66,5 +63,4 @@ module.exports = {
   postUser,
   browse,
   read,
-
 };
