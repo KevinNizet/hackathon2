@@ -29,13 +29,11 @@ pool.getConnection().catch(() => {
 
 const models = {};
 
-const ItemManager = require("./ItemManager");
+const PhoneManager = require("./PhoneManager");
 const UserManager = require("./userManager");
 
-models.item = new ItemManager();
-models.item.setDatabase(pool);
-models.user = new UserManager();
-models.user.setDatabase(pool);
+models.phone = new PhoneManager();
+models.phone.setDatabase(pool);
 
 models.user = new UserManager();
 models.user.setDatabase(pool);
