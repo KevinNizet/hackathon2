@@ -66,5 +66,4 @@ module.exports = {
   postUser,
   browse,
   read,
-
 };

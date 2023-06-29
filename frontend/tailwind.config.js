@@ -8,7 +8,7 @@ module.exports = {
         texts: ["serif"],
       },
       backgroundImage: {
-        wallpaper: "url(./frontend/src/assets/backgroundpaper2.jpg)",
+        wallpaper: "url(./src/assets/backgroundpaper2.jpg)",
       },
     },
   },
