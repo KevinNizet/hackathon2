@@ -4,7 +4,7 @@ const router = express.Router();
 
 const itemControllers = require("./controllers/itemControllers");
 const userControllers = require("./controllers/userControllers");
-const { /* hashPassword, */ verifyPassword } = require("./auth");
+const { hashPassword, verifyPassword } = require("./auth");
 
 router.get("/items", itemControllers.browse);
 router.get("/items/:id", itemControllers.read);
@@ -15,6 +15,7 @@ router.delete("/items/:id", itemControllers.destroy);
 router.post(
   "/api/login",
   userControllers.getUserByLoginWithPasswordAndPassToNext,
+  hashPassword,
   verifyPassword
 );
 
