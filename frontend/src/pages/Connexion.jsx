@@ -12,7 +12,7 @@ export default function Connexion() {
     e.preventDefault();
 
     axios
-      .post("", { login, password })
+      .post("http://localhost:6000/api/login", { login, password })
       .then((res) => {
         localStorage.setItem("user", JSON.stringify(res.data));
         navigate("/");
