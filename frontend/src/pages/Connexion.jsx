@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import NavBar from "../components/NavBar";
+import NavBarLogin from "../components/NavBarLogin";
 
 export default function Connexion() {
   const [login, setLogin] = useState("");
@@ -25,7 +25,7 @@ export default function Connexion() {
 
   return (
     <div className="Connexion bg-wallpaper bg-no-repeat bg-cover h-screen">
-      <NavBar />
+      <NavBarLogin />
       <br />
       <h1 className="font-titles text-center text-3xl">Connectez vous : </h1>
       <br />
