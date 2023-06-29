@@ -4,6 +4,7 @@ const router = express.Router();
 
 const phoneControllers = require("./controllers/phoneControllers");
 const userControllers = require("./controllers/userControllers");
+const caracteristiquesControllers = require("./controllers/caracteristiquesControllers");
 
 const { hashPassword, verifyPassword } = require("./auth");
 
@@ -12,7 +13,7 @@ router.get("/phone/:id", phoneControllers.read); // OK
 router.put("/phone/:id", phoneControllers.edit); // OK
 router.post("/phone", phoneControllers.add); // OK
 
-router.get("/details/:id", phoneControllers.read);
+router.get("/details", caracteristiquesControllers.read);
 
 router.post(
   "/api/login",
