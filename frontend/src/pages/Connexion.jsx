@@ -1,6 +1,25 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import NavBar from "../components/NavBar";
 
 export default function Connexion() {
+  const [login, setLogin] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleConnexion = (e) => {
+    e.preventDefault();
+
+    axios
+      .post("", { login, password })
+      .then((res) => {
+        localStorage.setItem("user", JSON.stringify(res.data));
+        navigate("/");
+      })
+      .catch((err) => console.error(err));
+  };
+
   return (
     <div className="Connexion bg-wallpaper bg-no-repeat bg-cover h-screen">
       <NavBar />
@@ -10,7 +29,7 @@ export default function Connexion() {
       <div className="w-full flex justify-center">
         <form action="">
           <label htmlFor="login" className="block font-texts">
-            Login :{" "}
+            Login :
           </label>
           <input
             id="login"
@@ -18,11 +37,13 @@ export default function Connexion() {
             type="text"
             placeholder="Nom d'utilisateur..."
             required
+            value={login}
+            onChange={(e) => setLogin(e.target.value)}
           />
           <br />
           <br />
           <label htmlFor="password" className="block font-texts">
-            Mot de passe :{" "}
+            Mot de passe :
           </label>
           <input
             id="password"
@@ -30,12 +51,15 @@ export default function Connexion() {
             type="password"
             placeholder="Mot de passe..."
             required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <br />
           <div className="flex justify-center items-center pt-4">
             <button
               type="submit"
               className="bg-gradient-to-br from-[#884A39] to-[#C38154] p-2 rounded-lg border-2 border-zinc-800"
+              onClick={handleConnexion}
             >
               Se Connecter
             </button>
