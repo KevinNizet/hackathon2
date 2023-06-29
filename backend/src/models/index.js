@@ -31,12 +31,16 @@ const models = {};
 
 const PhoneManager = require("./PhoneManager");
 const UserManager = require("./userManager");
+const CaracteristiqueManager = require("./CaracteristiqueManager");
 
 models.phone = new PhoneManager();
 models.phone.setDatabase(pool);
 
 models.user = new UserManager();
 models.user.setDatabase(pool);
+
+models.caracteristique = new CaracteristiqueManager();
+models.caracteristique.setDatabase(pool);
 
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model

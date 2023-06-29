@@ -17,7 +17,7 @@ SET
     @OLD_SQL_MODE = @@SQL_MODE,
     SQL_MODE = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
--- -----------------------------------------------------
+-- ----------------------------------------------------
 
 -- Schema mydb
 
@@ -54,12 +54,12 @@ CREATE TABLE
 
 -- -----------------------------------------------------
 
--- Table `mydb`.`Caracteristique`
+-- Table `mydb`.`caracteristique`
 
 -- -----------------------------------------------------
 
 CREATE TABLE
-    IF NOT EXISTS `DB_punk`.`Caracteristique` (
+    IF NOT EXISTS `DB_punk`.`caracteristique` (
         `id` INT NOT NULL AUTO_INCREMENT,
         `nb_gear` INT NOT NULL,
         `steam` INT NOT NULL,
@@ -134,7 +134,7 @@ VALUES (
     );
 
 INSERT INTO
-    `DB_punk`.`Caracteristique` (
+    `DB_punk`.`caracteristique` (
         `nb_gear`,
         `steam`,
         `year`,
@@ -146,7 +146,7 @@ INSERT INTO
 VALUES (2, 6, 1850, 3, true, 2, 1);
 
 INSERT INTO
-    `DB_punk`.`Caracteristique` (
+    `DB_punk`.`caracteristique` (
         `nb_gear`,
         `steam`,
         `year`,
@@ -158,7 +158,7 @@ INSERT INTO
 VALUES (4, 3, 1855, 5, true, 2, 1);
 
 INSERT INTO
-    `DB_punk`.`Caracteristique` (
+    `DB_punk`.`caracteristique` (
         `nb_gear`,
         `steam`,
         `year`,
@@ -170,7 +170,7 @@ INSERT INTO
 VALUES (1, 6, 1845, 3, true, 2, 2);
 
 INSERT INTO
-    `DB_punk`.`Caracteristique` (
+    `DB_punk`.`caracteristique` (
         `nb_gear`,
         `steam`,
         `year`,
@@ -182,7 +182,7 @@ INSERT INTO
 VALUES (6, 6, 1875, 6, true, 2, 2);
 
 INSERT INTO
-    `DB_punk`.`Caracteristique` (
+    `DB_punk`.`caracteristique` (
         `nb_gear`,
         `steam`,
         `year`,
@@ -194,7 +194,7 @@ INSERT INTO
 VALUES (2, 6, 1853, 3, true, 2, 3);
 
 INSERT INTO
-    `DB_punk`.`Caracteristique` (
+    `DB_punk`.`caracteristique` (
         `nb_gear`,
         `steam`,
         `year`,
@@ -206,7 +206,7 @@ INSERT INTO
 VALUES (6, 1, 1862, 3, true, 2, 3);
 
 INSERT INTO
-    `DB_punk`.`Caracteristique` (
+    `DB_punk`.`caracteristique` (
         `nb_gear`,
         `steam`,
         `year`,
@@ -218,7 +218,7 @@ INSERT INTO
 VALUES (2, 6, 1850, 3, true, 2, 4);
 
 INSERT INTO
-    `DB_punk`.`Caracteristique` (
+    `DB_punk`.`caracteristique` (
         `nb_gear`,
         `steam`,
         `year`,

@@ -1,12 +1,13 @@
 const models = require("../models");
 
 const read = (req, res) => {
-  models.Caracteristique.find(req.params.id)
+  models.caracteristique
+    .findAll(req.params)
     .then(([rows]) => {
       if (rows[0] == null) {
         res.sendStatus(404);
       } else {
-        res.send(rows[0]);
+        res.send(rows);
       }
     })
     .catch((err) => {
@@ -15,4 +16,4 @@ const read = (req, res) => {
     });
 };
 
-module.exports = read;
+module.exports = { read };
