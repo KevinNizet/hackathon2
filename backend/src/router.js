@@ -16,6 +16,7 @@ router.delete("/items/:id", itemControllers.destroy);
 router.post(
   "/api/login",
   userControllers.getUserByLoginWithPasswordAndPassToNext,
+  hashPassword,
   verifyPassword
 );
 

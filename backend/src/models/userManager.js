@@ -6,7 +6,7 @@ class userManager extends AbstractManager {
   }
 
   getUserByLogin(data) {
-    return this.database.query(`select * from user where login = ?`, [
+    return this.database.query(`SELECT * FROM user WHERE login = ?`, [
       data.login,
     ]);
   }
