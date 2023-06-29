@@ -7,11 +7,13 @@ const userControllers = require("./controllers/userControllers");
 
 const { hashPassword, verifyPassword } = require("./auth");
 
-router.get("/items", itemControllers.browse);
-router.get("/items/:id", itemControllers.read);
-router.put("/items/:id", itemControllers.edit);
-router.post("/items", itemControllers.add);
-router.delete("/items/:id", itemControllers.destroy);
+
+router.get("/phone", itemControllers.browse);
+router.get("/phone/:id", itemControllers.read);
+router.put("/phone/:id", itemControllers.edit);
+router.post("/phone", itemControllers.add);
+router.delete("/phone/:id", itemControllers.destroy);
+
 
 router.post(
   "/api/login",
@@ -20,9 +22,11 @@ router.post(
   verifyPassword
 );
 
-router.get("/user", userControllers.browse);
-router.get("/user/:id", userControllers.read);
-router.post("/api/user", hashPassword, userControllers.postUser);
+
+router.get("/user", userControllers.browse); // OK
+router.get("/user/:id", userControllers.read); // OK
+router.post("/api/user", hashPassword, userControllers.postUser); // OK
+
 
 // pour la route post api/users permettant d'enregistrer un nouvel utilisateur
 // utilisater hashPassword importé en haut

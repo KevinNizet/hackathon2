@@ -28,6 +28,7 @@ const verifyPassword = (req, res) => {
     .then(() => {
       res.send("authentification verified").status(200);
     })
+
     .catch((err) => {
       console.error(err);
       res.sendStatus(500);
